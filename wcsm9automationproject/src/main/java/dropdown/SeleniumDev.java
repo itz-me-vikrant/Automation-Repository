@@ -10,15 +10,17 @@ import org.openqa.selenium.interactions.Actions;
 
 public class SeleniumDev {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		WebDriver driver=new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.get("https://www.selenium.dev");
-		WebElement downloadTaget = driver.findElement(By.xpath("//span[text()='Downloads']"));
+		WebElement downloadeleTarget = driver.findElement(By.xpath("//span[text()='Downloads']"));
+	
+		Actions act = new Actions(driver);
+		Thread.sleep(2000);
+		act.contextClick(downloadeleTarget).perform();
 		
-		new Actions(driver);
-
 	}
 
 }
